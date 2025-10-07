@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TerminusModule } from '@nestjs/terminus';
 import { UserModule } from './user/user.module';
+import { DatabaseModule } from './shared/database/database.module';
 import { AuthModule } from './auth/auth.module';
 import { IntegrationModule } from './integration/integration.module';
 import { MonitoringModule } from './monitoring/monitoring.module';
@@ -11,6 +12,7 @@ import configuration from './shared/config/configuration';
     imports: [
         ConfigModule.forRoot({ isGlobal: true, load: [configuration] }),
         TerminusModule,
+        DatabaseModule,
         UserModule,
         AuthModule,
         IntegrationModule,

@@ -11,6 +11,7 @@ const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const terminus_1 = require("@nestjs/terminus");
 const user_module_1 = require("./user/user.module");
+const database_module_1 = require("./shared/database/database.module");
 const auth_module_1 = require("./auth/auth.module");
 const integration_module_1 = require("./integration/integration.module");
 const monitoring_module_1 = require("./monitoring/monitoring.module");
@@ -23,6 +24,7 @@ exports.AppModule = AppModule = __decorate([
         imports: [
             config_1.ConfigModule.forRoot({ isGlobal: true, load: [configuration_1.default] }),
             terminus_1.TerminusModule,
+            database_module_1.DatabaseModule,
             user_module_1.UserModule,
             auth_module_1.AuthModule,
             integration_module_1.IntegrationModule,
